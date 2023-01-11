@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    container_name: quarkus-with-mybatis
+    environment:
+      POSTGRES_USER: leonardogaspar
+      POSTGRES_PASSWORD: mysecretpassword
+      PGDATA: /data/postgres
+    volumes:
+      - /home/951549927@adm.unifor.br/Documentos/quarkus-with-mybatis/src/main/docker/docker-volume:/data/postgres
+    ports:
+      - "7999:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+networks:
+  postgres:
+    driver: bridge
